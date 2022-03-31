@@ -47,14 +47,14 @@ jupyterlab==3.2.8
 jupyterlab-pygments==0.1.2
 jupyterlab-server==2.10.3
 jupyterlab-widgets==1.0.2
+jupyterthemes==0.20.0
 keras==2.7.0
 Keras-Preprocessing==1.1.2
 kiwisolver==1.3.2
+lesscpy==0.15.0
 libclang==13.0.0
 Markdown==3.3.6
 MarkupSafe==2.0.1
-matlabengineforpython===R2021b
-matlabruntimeforpython===R2021b
 matplotlib==3.5.1
 matplotlib-inline==0.1.3
 mistune==0.8.4
@@ -75,6 +75,7 @@ parso==0.8.3
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==9.0.0
+ply==3.11
 prometheus-client==0.13.1
 prompt-toolkit==3.0.26
 protobuf==3.19.4
@@ -98,6 +99,7 @@ scipy==1.7.3
 seaborn==0.11.2
 Send2Trash==1.8.0
 six==1.16.0
+sklearn==0.0
 sniffio==1.2.0
 tensorboard==2.8.0
 tensorboard-data-server==0.6.1

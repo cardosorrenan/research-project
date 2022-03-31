@@ -1,7 +1,0 @@
-setup.py
-ecgBtd1v/__init__.py
-ecgBtd1v/ecgBtd1v.ctf
-matlabruntimeforpython.egg-info/PKG-INFO
-matlabruntimeforpython.egg-info/SOURCES.txt
-matlabruntimeforpython.egg-info/dependency_links.txt
-matlabruntimeforpython.egg-info/top_level.txt

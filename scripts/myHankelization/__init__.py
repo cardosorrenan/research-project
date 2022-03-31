@@ -21,7 +21,7 @@ class _PathInitializer(object):
     SUPPORTED_PYTHON_VERSIONS = ['2_7', '3_7', '3_8', '3_9']
     RUNTIME_VERSION_W_DOTS = '9.11'
     RUNTIME_VERSION_W_UNDERSCORES = '9_11'
-    PACKAGE_NAME = 'ecgBtd1v'
+    PACKAGE_NAME = 'myHankelization'
     
     def set_interpreter_version(self):    
         """Make sure the interpreter version is supported."""
