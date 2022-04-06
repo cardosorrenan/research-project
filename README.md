@@ -10,8 +10,6 @@ tar -xvf Python-3.7.4.tgz
 
 cd Python-3.7.4/
 
-sudo apt install libssl-dev libncurses5-dev libsqlite3-dev libtk8.6 libgdm-dev libdb4o-cil-dev libpcap-dev libreadline-gplv2-dev libncursesw5-dev tk-dev libgdbm-dev libc6-dev libbz2-dev zlib1g-dev libffi-dev
-
 ./configure
 
 make
@@ -68,6 +66,8 @@ deactivate
 ```
 source py37/bin/activate
 
+sudo apt install libpython3.7
+
 jupyter notebook
 ```
 
@@ -85,16 +85,90 @@ jupyter notebook
 |
 |__ py37              Python virtual environment
 |
-|__ scripts           Scripts :P
+|__ scripts           Scripts
 ```
 
-## **Scripts**
+## **scripts/Extractor.pynb**
+Output:
 ---
 ```
-|__ scripts           
-       |
-       |__ Extractor - Get, preprocess and extract for .pkl raw data 
-       |
-       |__ CNN_Classification
-       |
-       |__ Tensor
+Found 10344 recordings in ../databases/WFDB_Ga.
+Frequency: 500.0
+ - Found 570 recordings for AF.
+ - Unattached 5690 intervals.
+ - Found 1752 recordings for SR.
+ - Unattached 17435 intervals.
+Found 34905 recordings in ../databases/WFDB_Ningbo.
+Frequency: 500.0
+ - Found 0 recordings for AF.
+ - Unattached 0 intervals.
+ - Found 6299 recordings for SR.
+ - Unattached 62990 intervals.
+Found 3453 recordings in ../databases/WFDB_CPSC2018_2.
+Frequency: 500.0
+ - Found 153 recordings for AF.
+ - Unattached 2325 intervals.
+ - Found 4 recordings for SR.
+ - Unattached 61 intervals.
+Found 6877 recordings in ../databases/WFDB_CPSC2018.
+Frequency: 500.0
+ - Found 1221 recordings for AF.
+ - Unattached 18306 intervals.
+ - Found 918 recordings for SR.
+ - Unattached 14116 intervals.
+Found 21837 recordings in ../databases/WFDB_PTBXL.
+Frequency: 500.0
+ - Found 1514 recordings for AF.
+ - Unattached 15140 intervals.
+ - Found 18092 recordings for SR.
+ - Unattached 180920 intervals.
+Found 7497 recordings in ../databases/WFDB_ChapmanShaoxing.
+Frequency: 500.0
+ - Found 1273 recordings for AF.
+ - Unattached 12730 intervals.
+ - Found 1350 recordings for SR.
+ - Unattached 13500 intervals.
+```
+
+```
+filename  | inf  | sup  | data      |  db              |  diagnostic
+-----------------------------------------------------------------------
+Q3000.mat | 1000 | 1250 | (12, 250) |  WFDB_CPSC2018_2 |  AF
+```
+
+```               
+AF_WFDB_CPSC2018            18306
+AF_WFDB_CPSC2018_2           2325
+AF_WFDB_ChapmanShaoxing     12730
+AF_WFDB_Ga                   5690
+AF_WFDB_Ningbo                  0
+AF_WFDB_PTBXL               15140
+
+SR_WFDB_CPSC2018            14116
+SR_WFDB_CPSC2018_2             61
+SR_WFDB_ChapmanShaoxing     13500
+SR_WFDB_Ga                  17435
+SR_WFDB_Ningbo              62990
+SR_WFDB_PTBXL              180920
+
+   AF: 54191 rows
+   SR: 289022 rows
+TOTAL: 343213 rows
+```
+```
+635 MB  ../data/part_12.pkl
+635 MB  ../data/part_11.pkl
+635 MB  ../data/part_10.pkl
+635 MB  ../data/part_9.pkl
+635 MB  ../data/part_8.pkl
+635 MB  ../data/part_7.pkl
+635 MB  ../data/part_6.pkl
+635 MB  ../data/part_5.pkl
+635 MB  ../data/part_4.pkl
+635 MB  ../data/part_3.pkl
+635 MB  ../data/part_2.pkl
+635 MB  ../data/part_1.pkl
+635 MB  ../data/part_0.pkl
+-----------------------------
+8.255 GB
+```

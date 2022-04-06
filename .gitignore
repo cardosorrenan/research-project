@@ -6,3 +6,7 @@ py37/
 2022-02-02_02_05_35.pkl
 databases/
 data/
+
+*.csv#
+
+*.pkl
