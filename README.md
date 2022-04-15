@@ -172,3 +172,22 @@ TOTAL: 343213 rows
 -----------------------------
 8.255 GB
 ```
+
+# **MATLAB**
+
+- **Open MATLAB**
+```
+/home/$USER/MATLAB/R2021b/bin/matlab
+```
+
+- **Open a script .mlx**
+
+- **Edit**
+
+- **Apps/Application Deployment/Library Compiler**
+
+- **Select Python File**
+
+- **Add Script .mlx**
+
+- **Add script sample**
