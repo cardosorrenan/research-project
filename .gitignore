@@ -1,12 +1,24 @@
-PhysioNet-CinC21/
+# ENV
 py37/
+
+# CACHE PYTHON FILES
 *.pyc
 **/__pycache__/
-*.csv
-2022-02-02_02_05_35.pkl
+
+## WORKDATA
 databases/
 data/
+**.csv#
+**.csv
+**.pkl
 
-*.csv#
+# MATLAB WORKPLACE
+**/tensorlab/
+**/for_redistribution/
+**/for_testing/
+**/for_redistribution_files_only/
+**/tensorlab_3.0.zip
 
-*.pkl
+# ETC
+*.txt
+
