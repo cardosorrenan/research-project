@@ -1,9 +1,32 @@
 # Research Project
 
-## Setup
----
-- **Python 3.7.4**
+## **a. Get repo**
 ```
+git clone https://github.com/cardosorrenan/research-project.git
+```
+
+## **b. Get the recordings**
+```
+Download content from **url** in databases/ folder
+
+|__ databases/
+  |__ WFDB_ChapmanShaoxing/
+  |__ WFDB_CPSC2018/
+  |__ WFDB_CPSC2018_2/
+  |__ WFDB_Ga/
+  |__ WFDB_Ningbo/
+  |__ WFDB_PTB/
+  |__ WFDB_PTBXL/
+  |__ WFDB_StPetersburg/
+```
+
+
+## **c. Setup**
+
+### Python 3.7.4
+```
+cd ~
+
 wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 
 tar -xvf Python-3.7.4.tgz
@@ -19,175 +42,171 @@ make test
 sudo make install
 
 python3.7 -m ensurepip --upgrade
+
+sudo apt install libpython3.7
 ```
 
-- **Make virtualenv with Python 3.7.4**
+### Install MATLAB
 ```
- sudo python3.7 -m pip install virtualenv
+cd ~
 
- virtualenv -p $(which python3.7) py37
-
- source py37/bin/activate
-```
-
-- **Install MATLAB**
-```
 https://www.mathworks.com/downloads/
 
 tar -xvf matlab_R2021b_glnxa64.zip
 
-cd matlab_R2021b_glnxa64
+cd matlab_R2021b_glnxa64/
 
 ./install
 ```
 
-- **Install Engine Matlab-Python**
+### Download repo
 ```
-cd /home/renan/MATLAB/R2021b/extern/engines/python && python setup.py 
+cd /home/YOUR_USER/Desktop/
 
-./install
+git clone project
+
+cd project
 ```
 
+### Make a virtualenv
+```
+ sudo python3.7 -m pip install virtualenv
 
-- **Install packages**
+ virtualenv -p $(which python3.7) venv
+```
+
+### Activate venv
+```
+source venv/bin/activate
+```
+
+### Install required packages and engine Matlab-Python
 ```
 pip install -r requirements.txt
 ```
 
-- **Create Kernel from virtualenv created**
+### Install engine Matlab-Python
 ```
-ipython kernel install --user --name py37 --display-name "Python 3.7"
+cd /home/YOUR_USER/MATLAB/R2021b/extern/engines/python 
+
+python3.7 -m setup.py
+```
+
+### Preparing venv kernel created for the jupyter 
+```
+ipython kernel install --user --name venv --display-name "Python 3.7"
 
 deactivate
 ```
 
-## Run Project
----
+
+## **d. Run Project**
 ```
 source py37/bin/activate
-
-sudo apt install libpython3.7
 
 jupyter notebook
 ```
 
-## **Folder Structure**
----
+## **e. Folder Structure**
 ```
 |
-|__ data              Data preprocessed from databases/
+|__ workdata/          Data preprocessed
 |
-|__ databases         Raw data
+|__ databases/         Raw data
 |
-|__ libs              Scripts MATLAB transpiled for python
+|__ matlab/            Scripts MATLAB
 |
-|__ matlab-files      General files MATLAB
+|__ venv/              Python virtual
 |
-|__ py37              Python virtual environment
-|
-|__ scripts           Scripts
+|__ scripts/           Scripts
+  |
+  |__ myPackages/        Packages python builded from MATLAB functions
 ```
 
-## **scripts/Extractor.pynb**
-Output:
----
-```
-Found 10344 recordings in ../databases/WFDB_Ga.
-Frequency: 500.0
- - Found 570 recordings for AF.
- - Unattached 5690 intervals.
- - Found 1752 recordings for SR.
- - Unattached 17435 intervals.
-Found 34905 recordings in ../databases/WFDB_Ningbo.
-Frequency: 500.0
- - Found 0 recordings for AF.
- - Unattached 0 intervals.
- - Found 6299 recordings for SR.
- - Unattached 62990 intervals.
-Found 3453 recordings in ../databases/WFDB_CPSC2018_2.
-Frequency: 500.0
- - Found 153 recordings for AF.
- - Unattached 2325 intervals.
- - Found 4 recordings for SR.
- - Unattached 61 intervals.
-Found 6877 recordings in ../databases/WFDB_CPSC2018.
-Frequency: 500.0
- - Found 1221 recordings for AF.
- - Unattached 18306 intervals.
- - Found 918 recordings for SR.
- - Unattached 14116 intervals.
-Found 21837 recordings in ../databases/WFDB_PTBXL.
-Frequency: 500.0
- - Found 1514 recordings for AF.
- - Unattached 15140 intervals.
- - Found 18092 recordings for SR.
- - Unattached 180920 intervals.
-Found 7497 recordings in ../databases/WFDB_ChapmanShaoxing.
-Frequency: 500.0
- - Found 1273 recordings for AF.
- - Unattached 12730 intervals.
- - Found 1350 recordings for SR.
- - Unattached 13500 intervals.
-```
+## **f. Scripts**
 
+### Content in folder /scripts
 ```
-filename  | inf  | sup  | data      |  db              |  diagnostic
------------------------------------------------------------------------
-Q3000.mat | 1000 | 1250 | (12, 250) |  WFDB_CPSC2018_2 |  AF
-```
-
-```               
-AF_WFDB_CPSC2018            18306
-AF_WFDB_CPSC2018_2           2325
-AF_WFDB_ChapmanShaoxing     12730
-AF_WFDB_Ga                   5690
-AF_WFDB_Ningbo                  0
-AF_WFDB_PTBXL               15140
-
-SR_WFDB_CPSC2018            14116
-SR_WFDB_CPSC2018_2             61
-SR_WFDB_ChapmanShaoxing     13500
-SR_WFDB_Ga                  17435
-SR_WFDB_Ningbo              62990
-SR_WFDB_PTBXL              180920
-
-   AF: 54191 rows
-   SR: 289022 rows
-TOTAL: 343213 rows
-```
-```
-635 MB  ../data/part_12.pkl
-635 MB  ../data/part_11.pkl
-635 MB  ../data/part_10.pkl
-635 MB  ../data/part_9.pkl
-635 MB  ../data/part_8.pkl
-635 MB  ../data/part_7.pkl
-635 MB  ../data/part_6.pkl
-635 MB  ../data/part_5.pkl
-635 MB  ../data/part_4.pkl
-635 MB  ../data/part_3.pkl
-635 MB  ../data/part_2.pkl
-635 MB  ../data/part_1.pkl
-635 MB  ../data/part_0.pkl
------------------------------
-8.255 GB
+ |__ Mu.pynb (1º step)          
+ |     - Get raw data from databases/ folder
+ |     - Filtering (chebyshev2)
+ |     - Resample records to 250 Hz
+ |     - Cut a record in many recordings of 250 samples (1 sec)
+ |     - Prepare to a dataframe 
+ |     - Save into workdata/mu/ in .pkl files:
+ |
+ |               diagnostic  db                  
+ |               AF          WFDB_CPSC2018            18306
+ |                           WFDB_CPSC2018_2           2325
+ |                           WFDB_ChapmanShaoxing     12730
+ |                           WFDB_Ga                   5690
+ |                           WFDB_Ningbo                  0
+ |                           WFDB_PTBXL               15140
+ |               SR          WFDB_CPSC2018            14116
+ |                           WFDB_CPSC2018_2             61
+ |                           WFDB_ChapmanShaoxing     13500
+ |                           WFDB_Ga                  17435
+ |                           WFDB_Ningbo              62990
+ |                           WFDB_PTBXL              180920
+ |
+ |               TOTAL: 343213 rows
+ |               AF: 54191 rows
+ |               SR: 289022 rows
+ |     
+ |
+ |__ Aldebaran.pynb (2º step) 
+ |     - Load records in workdata/mu/  
+ |     - Get 110 random records
+ |     - Save records in workdata/aldebaran/aldebaran.pkl
+ |
+ |              diagnostic  db                  
+ |              AF          WFDB_CPSC2018           10
+ |                          WFDB_CPSC2018_2         10
+ |                          WFDB_ChapmanShaoxing    10
+ |                          WFDB_Ga                 10
+ |                          WFDB_Ningbo              0
+ |                          WFDB_PTBXL              10
+ |              SR          WFDB_CPSC2018           10
+ |                          WFDB_CPSC2018_2         10
+ |                          WFDB_ChapmanShaoxing    10
+ |                          WFDB_Ga                 10
+ |                          WFDB_Ningbo             10
+ |                          WFDB_PTBXL              10
+ |  
+ |__ Saga.pynb (3º step)
+ |     - Load records workdata/aldebaran/aldebaran.pkl
+ |     - First Experiment
+ |     - Resample do 100 Hz
+ |     - Hankelize
+ |     - Run BTD
+ |     - Generate .csv and .npy files (results and extracted sources) 
+ |     - Save results in workdata/saga/
+ | 
+ |__ Deathmask.pynb (4º step)
+ |     - Getting results from workdata/saga/
 ```
 
-# **MATLAB**
+## **f. MATLAB - Editing functions**
 
-- **Open MATLAB**
+### Open MATLAB
 ```
-/home/$USER/MATLAB/R2021b/bin/matlab
+/home/YOUR_USER/MATLAB/R2021b/bin/matlab
 ```
 
-- **Open a script .mlx**
+### Maintain/Refac the MATLAB scripts
+```
+Example folder: matlab/myBTD/
 
-- **Edit**
+- Open myBTD.mlx function file to edit
+- Open the file myBTD_sample.m to test the function myBTD.mlx
+- Go to Apps/Application -> Deployment/Library Compiler
+- Import myBTD.prj project
+- Press "Export project"
+```
 
-- **Apps/Application Deployment/Library Compiler**
-
-- **Select Python File**
-
-- **Add Script .mlx**
-
-- **Add script sample**
+### Disclaimer
+```
+- myBTD using btd_rnd e btd_nls
+- myBTD2 using ll1_rnd e ll1_nls
+- Saga script get output (rebuilt package) automatically, just rerun the first cell after running "Export project" on MATLAB
+```

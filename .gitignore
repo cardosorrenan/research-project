@@ -6,8 +6,7 @@ py37/
 **/__pycache__/
 
 ## WORKDATA
-databases/
-data/
+databases/**/
 **.csv#
 **.csv
 **.pkl
@@ -21,4 +20,4 @@ data/
 
 # ETC
 *.txt
-
+*.npy
