@@ -4,12 +4,16 @@ py37/
 # CACHE PYTHON FILES
 *.pyc
 **/__pycache__/
+**/.ipynb_checkpoints/
 
 ## WORKDATA
 databases/**/
 **.csv#
 **.csv
 **.pkl
+**.jpg
+**.png
+**.zip
 
 # MATLAB WORKPLACE
 **/tensorlab/
