@@ -128,12 +128,12 @@ jupyter notebook
 ### Content in folder /scripts
 ```
  |__ Mu.pynb (1º step)          
- |     - Get raw data from databases/
+ |     - Getting raw data from databases/
  |     - Filtering (chebyshev2)
  |     - Resample records to 250 Hz
  |     - Cut a record in many recordings of 250 samples (1 sec)
  |     - Prepare to a dataframe 
- |     - Save into workdata/mu/ in 13 .pkl files:
+ |     - Saving into workdata/mu/ in 13 .pkl files:
  |
  |               diagnostic  db                  
  |               AF          WFDB_CPSC2018            18306
@@ -156,8 +156,8 @@ jupyter notebook
  |
  |__ Aldebaran.pynb (2º step) 
  |     - Load records from workdata/mu/  
- |     - Get 110 random records
- |     - Save records in workdata/aldebaran/aldebaran.pkl
+ |     - Getting 110 random records
+ |     - Saving records in workdata/aldebaran/aldebaran.pkl
  |
  |              diagnostic  db                  
  |              AF          WFDB_CPSC2018           10
@@ -181,23 +181,23 @@ jupyter notebook
  |     - Hankelize
  |     - Run BTD
  |     - Generate .csv and .npy files (results and extracted sources) 
- |     - Save results in workdata/saga/
+ |     - Saving results in workdata/saga/
  |
  | 
  |__ Deathmask.pynb (4º step)
- |     - Trying get correlation in results from workdata/saga/
+ |     - Trying to get correlation in workdata/saga/ results
  |
  |
  |__ Aioria.pynb (5º step)
  |     - Load results from workdata/saga/
  |     - Count sources between 3Hz and 9Hz
  |     - Export .csv
- |     - Save sources with frequency spectre in .jpg
- |     - Save results in workdata/aioria/
+ |     - Saving sources with frequency spectre in .jpg
+ |     - Saving results in workdata/aioria/
  |
  |
  |__ Shaka.pynb (4º step)
- |     - Trying get correlation from workdata/aioria/
+ |     - Trying to get correlation in workdata/aioria/ results
  |
  |
 ```
