@@ -127,7 +127,7 @@ jupyter notebook
 
 ### Content in folder /scripts
 ```
- |__ Mu.pynb (1º step)          
+ |__ Mu.pynb
  |     - Getting raw data from databases/
  |     - Filtering (chebyshev2)
  |     - Resample records to 250 Hz
@@ -154,7 +154,7 @@ jupyter notebook
  |               SR: 289022 rows
  |     
  |
- |__ Aldebaran.pynb (2º step) 
+ |__ Aldebaran.pynb
  |     - Load records from workdata/mu/  
  |     - Getting 110 random records
  |     - Saving records in workdata/aldebaran/aldebaran.pkl
@@ -174,7 +174,7 @@ jupyter notebook
  |                          WFDB_PTBXL              10
  |  
  |
- |__ Saga.pynb (3º step)
+ |__ Saga.pynb
  |     - Load records from workdata/aldebaran/aldebaran.pkl
  |     - First experiment
  |     - Resample do 100 Hz
@@ -184,11 +184,11 @@ jupyter notebook
  |     - Saving results in workdata/saga/
  |
  | 
- |__ Deathmask.pynb (4º step)
+ |__ Deathmask.pynb
  |     - Trying to get correlation in workdata/saga/ results
  |
  |
- |__ Aioria.pynb (5º step)
+ |__ Aioria.pynb
  |     - Load results from workdata/saga/
  |     - Count sources between 3Hz and 9Hz
  |     - Export .csv
@@ -196,9 +196,78 @@ jupyter notebook
  |     - Saving results in workdata/aioria/
  |
  |
- |__ Shaka.pynb (4º step)
+ |__ Shaka.pynb
  |     - Trying to get correlation in workdata/aioria/ results
  |
+ | 
+ |__ Dohko.pynb
+ |     - Getting raw data from databases/
+ |     - Saving .csv into workdata/dohko/dohko.csv
+ |           
+ |           path	| db	          | filename  |	diag | total_diags | db_freq | time
+ |           -----------------------------------------------------------------------
+ |           0	  | WFDB_CPSC2018 | A4644.mat	| SR	 | 1	         | 500	   | 10.0
+ |
+ |           AF: 4711 rows
+ |           SR: 28458 rows
+ |           
+ |           diag | db                  
+ |           -------------------------------------
+ |           AF   |  WFDB_CPSC2018            1221
+ |                |  WFDB_CPSC2018_2           153
+ |                |  WFDB_ChapmanShaoxing     1273
+ |                |  WFDB_Ga                   570
+ |                |  WFDB_PTB                   15
+ |                |  WFDB_PTBXL               1477
+ |                |  WFDB_StPetersburg           2
+ |           SR   |  WFDB_CPSC2018             918
+ |                |  WFDB_CPSC2018_2             4
+ |                |  WFDB_ChapmanShaoxing     1350
+ |                |  WFDB_Ga                  1752
+ |                |  WFDB_Ningbo              6299
+ |                |  WFDB_PTB                   80
+ |                |  WFDB_PTBXL              18055
+ |
+ |
+ |__ Miro.pynb
+ |     - Getting rows from workdata/dohko/dohko.csv
+ |     - Filtering (chebyshev2)
+ |     - Resample records to 100 Hz
+ |     - Prepare to a dataframe 
+ |     - Saving into workdata/miro/ in 10 .pkl files:
+ |
+ |
+ |__ Aioros.pynb
+ |     - Getting samples from workdata/miro/part4.pkl
+ |     - Get 5 first rows of each db 
+ |
+ |        diag |  db                  
+ |        ---------------------------------
+ |        AF   |  WFDB_CPSC2018           5
+ |             |  WFDB_CPSC2018_2         5
+ |             |  WFDB_ChapmanShaoxing    5
+ |             |  WFDB_Ga                 5
+ |             |  WFDB_PTB                3
+ |             |  WFDB_PTBXL              5
+ |        SR   |  WFDB_CPSC2018           5
+ |             |  WFDB_ChapmanShaoxing    5
+ |             |  WFDB_Ga                 5
+ |             |  WFDB_Ningbo             5
+ |             |  WFDB_PTB                4
+ |             |  WFDB_PTBXL              5
+ |
+ | 
+ |     - Find the QRS and cut a beat (with 200ms offset) from each example
+ |     - Save the all leads (.jpg) of a beat
+ |     - Save lead V5 from recording (.jpg)
+ |     - Prepare to a dataframe 
+ |     - Saving into workdata/aioros/aioros.pkl
+ | 
+ |__ Shura.pynb
+ |
+ |__ Camus.pynb
+ |
+ |__ Shion.pynb
  |
 ```
 
