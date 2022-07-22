@@ -185,21 +185,23 @@ jupyter notebook
  |
  | 
  |__ Deathmask.pynb
- |     - Trying to get correlation in workdata/saga/ results
- |
+ |     - is dead
  |
  |__ Aioria.pynb
  |     - Load results from workdata/saga/
  |     - Count sources between 3Hz and 9Hz
  |     - Export .csv
  |     - Saving sources with frequency spectre in .jpg
- |     - Saving results in workdata/aioria/
+ |     - Saving results in workdata/aioria/S
  |
  |
  |__ Shaka.pynb
  |     - Trying to get correlation in workdata/aioria/ results
  |
- | 
+ ||==================================|| 
+ ||   Refactoring - 2nd Generation   ||
+ ||==================================||
+ |  
  |__ Dohko.pynb
  |     - Getting raw data from databases/
  |     - Saving .csv into workdata/dohko/dohko.csv
@@ -228,7 +230,6 @@ jupyter notebook
  |                |  WFDB_PTB                   80
  |                |  WFDB_PTBXL              18055
  |
- |
  |__ Miro.pynb
  |     - Getting rows from workdata/dohko/dohko.csv
  |     - Filtering (chebyshev2)
@@ -236,38 +237,39 @@ jupyter notebook
  |     - Prepare to a dataframe 
  |     - Saving into workdata/miro/ in 10 .pkl files:
  |
- |
  |__ Aioros.pynb
- |     - Getting samples from workdata/miro/part4.pkl
- |     - Get 5 first rows of each db 
- |
- |        diag |  db                  
- |        ---------------------------------
- |        AF   |  WFDB_CPSC2018           5
- |             |  WFDB_CPSC2018_2         5
- |             |  WFDB_ChapmanShaoxing    5
- |             |  WFDB_Ga                 5
- |             |  WFDB_PTB                3
- |             |  WFDB_PTBXL              5
- |        SR   |  WFDB_CPSC2018           5
- |             |  WFDB_ChapmanShaoxing    5
- |             |  WFDB_Ga                 5
- |             |  WFDB_Ningbo             5
- |             |  WFDB_PTB                4
- |             |  WFDB_PTBXL              5
- |
- | 
  |     - Find the QRS and cut a beat (with 200ms offset) from each example
+ |     - The beat is extracted from V5 (the largest RR interval)
+ |     - Save the beat location on lead V5 from recording (.jpg)
  |     - Save the all leads (.jpg) of a beat
- |     - Save lead V5 from recording (.jpg)
  |     - Prepare to a dataframe 
- |     - Saving into workdata/aioros/aioros.pkl
- | 
+ |     - Save the pickle in workdata/aioros/
+ |     - Aioros.pkl
+ |        - Getting samples from workdata/miro/part4.pkl
+ |        - Get 5 first rows of each db
+ |        - Saving with name aioros.pkl
+ |     - Aioros_large.pkl
+ |         - Getting all samples from part0.pkl, part1.pkl, part2.pkl
+ |         - Saving with name aioros_large.pkl
+ |
  |__ Shura.pynb
+ |     - Getting data from workdata/aioros
+ |     - Hankelize
+ |     - Run BTD
+ |     - Generate .csv and .npy files (results and extracted sources) 
+ |     - Saving results in workdata/shura/experiment{N}/
+ |        - N = 1
+ |           - Using the aioros_large.pkl (9951, 7)
+ |           - Only Rank 6
+ |           - Lr 17
+ |           - Algorithm LL1_NLS
  |
  |__ Camus.pynb
- |
- |__ Shion.pynb
+ |      - Getting results from workdata/experiments{N}/results.csv
+ |      - Pre-processing input
+ |      - Classifiers
+ |        - Tunning GridSearch
+ |        - MLP, RandomForest, LDA, SVM, XGBoost, CNN
  |
 ```
 

@@ -109,6 +109,7 @@ Send2Trash==1.8.0
 six==1.16.0
 sklearn==0.0
 sniffio==1.2.0
+SoundFile==0.10.3.post1
 tables==3.7.0
 tensorboard==2.8.0
 tensorboard-data-server==0.6.1
@@ -130,6 +131,8 @@ wcwidth==0.2.5
 webencodings==0.5.1
 websocket-client==1.2.3
 Werkzeug==2.0.2
+wfdb==4.0.0
 widgetsnbextension==3.5.2
 wrapt==1.13.3
+xgboost==1.6.1
 zipp==3.7.0
